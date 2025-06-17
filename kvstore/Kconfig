@@ -1,0 +1,5 @@
+config KVSTORE
+  tristate "My kvstore module"
+  default y
+  help
+    This module is a custom module which can accept a (k, v) pair and output v when search for k.
