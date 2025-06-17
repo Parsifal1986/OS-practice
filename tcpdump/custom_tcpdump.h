@@ -19,7 +19,6 @@ int custom_tcpdump_capture(const char* iface, const char* custom_filter, void* b
         return -1;
     }
 
-    // 可选：获取网络号和子网掩码（用于编译过滤器时）
     if (pcap_lookupnet(iface, &net, &mask, errbuf) == -1) {
         fprintf(stderr, "Warning: could not get netmask for device %s, %s\n", iface, errbuf);
         net = 0;
@@ -39,7 +38,7 @@ int custom_tcpdump_capture(const char* iface, const char* custom_filter, void* b
             pcap_close(handle);
             return -3;
         }
-        pcap_freecode(&bpf);  // 释放过滤程序资源
+        pcap_freecode(&bpf);
     }
 
     // 3. 抓包循环，将数据拷贝到用户缓冲区
