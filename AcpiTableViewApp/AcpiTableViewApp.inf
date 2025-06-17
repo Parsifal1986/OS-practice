@@ -1,0 +1,34 @@
+##  @file
+#  EFI application that displays and verifies ACPI tables
+#
+#  Copyright (c) 2020, ARM Limited. All rights reserved.<BR>
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = AcpiTableViewApp
+  FILE_GUID                      = c5ef2607-79b3-4e76-a954-515e6dda3ba9
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = PrintAllACPITables
+  UEFI_HII_RESOURCE_SECTION      = TRUE
+
+[Sources.common]
+  AcpiTableViewApp.c
+  AcpiTableViewApp.uni
+
+[Packages]
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiLib
+  BaseLib
+  UefiApplicationEntryPoint
+  AcpiViewCommandLib
