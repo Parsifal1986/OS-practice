@@ -1,0 +1,9 @@
+## TempRuntimePkg/TempRuntimePkg.dec
+[Defines]
+  DEC_SPECIFICATION  = 0x00010006
+  PACKAGE_NAME       = TempRuntimePkg
+  PACKAGE_GUID       = abcdabcd-abcd-abcd-abcd-abcdabcdabcd
+  PACKAGE_VERSION    = 1.0
+
+[Guids]
+  gTempAcpiTableGuid = { 0xfeedbeef, 0x1234, 0x4321, { 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff, 0x00, 0x11 } }

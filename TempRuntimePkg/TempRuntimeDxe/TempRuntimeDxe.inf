@@ -1,0 +1,32 @@
+[Defines]
+  INF_VERSION                    = 0x00010019
+  BASE_NAME                      = TempRuntimeDxe
+  FILE_GUID                      = 12345678-1234-1234-1234-1234567890ab
+  MODULE_TYPE                    = DXE_DRIVER  # 改为 DXE_DRIVER
+  PI_SPECIFICATION_VERSION       = 0x00010000
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = TempRuntimeDxeEntry  # 添加入口点
+
+[Sources]
+  TempRuntimeDxe.c
+  TempTable.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  TempRuntimePkg/TempRuntimePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiLib
+  BaseLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  DebugLib
+  UefiBootServicesTableLib
+
+[Protocols]
+  gEfiAcpiTableProtocolGuid
+
+[Depex]
+  gEfiAcpiTableProtocolGuid
