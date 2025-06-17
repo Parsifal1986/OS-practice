@@ -35,4 +35,13 @@ ncclResult_t nccl_broadcast_data(void* data, size_t count, int root, ncclComm_t 
   return ncclSuccess;
 }
 
+ncclResult_t nccl_all_reduce(void* data, size_t count, ncclRedOp_t opt, ncclComm_t comm) {
+  cudaStream_t stream;
+  CUDACHECK(cudaStreamCreate(&stream));
+
+  NCCLCHECK(ncclAllReduce(data, data, count, ncclFloat, opt, comm, stream));
+  CUDACHECK(cudaStreamSynchronize(stream));
+  return ncclSuccess;
+}
+
 #endif // NCCL_BROADCAST_CUH
